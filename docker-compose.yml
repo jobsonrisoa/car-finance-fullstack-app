@@ -5,7 +5,7 @@ services:
     build:
       context: ./
       dockerfile: docker/php/DockerFile
-    container_name: dewtech-app
+    container_name: jobson-app
     restart: always
     working_dir: /var/www/
     volumes:
@@ -15,14 +15,14 @@ services:
       - COMPOSER_HOME=/composer
       - COMPOSER_ALLOW_SUPERUSER=1
       - APP_ENV=local
-      - APP_KEY=base64:aoxRfgDM0eF8JdgYqqVM9OGg1IYkVLaQPbgToGrq0qY=
+      - APP_KEY=base64:XTGUBwISTibpsWxXUqMW7VKSuSE8vZgzsuw9jXYmaM8=
     depends_on:
       - db
       - redis
 
   nginx:
     image: nginx:1.25.1-alpine-slim
-    container_name: dewtech-nginx
+    container_name: jobson-nginx
     restart: always
     ports:
       - "8000:80"
@@ -35,7 +35,7 @@ services:
     build:
       context: ./
       dockerfile: docker/redis/DockerFile
-    container_name: dewtech-redis
+    container_name: jobson-redis
     restart: always
     ports:
       - "6379:6379"
@@ -45,7 +45,7 @@ services:
     build:
       context: ./
       dockerfile: docker/db/DockerFile
-    container_name: dewtech-db
+    container_name: jobson-db
     restart: always
     environment:
       - POSTGRES_DB=postgres
@@ -55,6 +55,19 @@ services:
       - "5432:5432"
     volumes:
       - db:/var/lib/postgresql/data
+
+  frontend:
+    build:
+      context: ./
+      dockerfile: docker/nextjs/Dockerfile
+    container_name: jobson-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app:ro  # Mount as read-only to prevent overwriting the build
+    environment:
+      - NODE_ENV=production
 
 volumes:
   redis:
