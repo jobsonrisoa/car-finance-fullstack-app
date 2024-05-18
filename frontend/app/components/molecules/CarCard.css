@@ -1,0 +1,14 @@
+.card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      padding: 10px;
+      margin: 10px 0;
+    }
+  }
+  

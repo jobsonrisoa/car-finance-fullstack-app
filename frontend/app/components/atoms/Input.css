@@ -1,0 +1,14 @@
+.input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .input {
+      padding: 8px;
+      font-size: 0.875rem;
+    }
+  }
+  

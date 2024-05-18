@@ -1,95 +1,64 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
 
-export default function Home() {
+import React, { useState } from 'react';
+import MainTemplate from './components/templates/MainTemplate';
+import './page.css';
+import { useCars } from './hooks/useCars';
+import { useFinances } from './hooks/useFinances';
+import { Car } from './types/car';
+import FinanceCalculator from './components/molecules/FinanceCalculator';
+import CarCard from './components/molecules/CarCard';
+
+const Home: React.FC = () => {
+  const { data: cars, error: carsError } = useCars();
+  const { data: financeData, calculateFinance } = useFinances();
+  const [selectedCar, setSelectedCar] = useState<Car | null>(null);
+
+  if (carsError) return <div>Error loading cars</div>;
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <MainTemplate>
+      <div className='container'>
+        <h2 className='title'>Simulação de Financiamento</h2>
+        <select
+          className='select'
+          onChange={(e) =>
+            setSelectedCar(
+              cars?.find((car) => car.id === Number(e.target.value)) || null
+            )
+          }
+        >
+          <option value=''>Selecione</option>
+          {cars?.map((car) => (
+            <option key={car.id} value={car.id}>
+              {car.model}
+            </option>
+          ))}
+        </select>
+        {selectedCar && (
+          <FinanceCalculator
+            carId={selectedCar.id}
+            onCalculate={(downPayment) =>
+              calculateFinance(selectedCar.id, downPayment)
+            }
+          />
+        )}
+        {selectedCar && <CarCard car={selectedCar} />}
+        {financeData && (
+          <div>
+            <p>Valores simulados para você</p>
+            <p>
+              48x: R$ {financeData.original.installment_values["48"] || "N/A"}
+            </p>
+            <p>
+              12x: R$ {financeData.original.installment_values["12"] || "N/A"}
+            </p>
+            <p>6x: R$ {financeData.original.installment_values["6"] || "N/A"}</p>
+          </div>
+        )}
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </MainTemplate>
   );
-}
+};
+
+export default Home;
