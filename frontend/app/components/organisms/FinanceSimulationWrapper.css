@@ -1,0 +1,31 @@
+@import "../../styles/constants.css";
+
+.finance-simulation-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.upper-half {
+  flex: 1;
+}
+
+.lower-half {
+  flex: 1;
+  display: flex;
+}
+
+.left-half,
+.right-half {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-smallPadding);
+}
+
+@media (max-width: var(--breakpoints-tablet)) {
+  .lower-half {
+    flex-direction: column;
+  }
+}

@@ -1,14 +1,17 @@
+@import "../../styles/constants.css";
+
 .card {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 20px 0;
-    text-align: center;
+  border: 1px solid #ddd;
+  padding: var(--spacing-padding);
+  margin: var(--spacing-margin);
+  text-align: center;
+  background-color: var(--colors-background);
+  border-radius: var(--borderRadius-small);
+}
+
+@media (max-width: var(--breakpoints-tablet)) {
+  .card {
+    padding: var(--spacing-smallPadding);
+    margin: var(--spacing-smallMargin);
   }
-  
-  @media (max-width: 768px) {
-    .card {
-      padding: 10px;
-      margin: 10px 0;
-    }
-  }
-  
+}

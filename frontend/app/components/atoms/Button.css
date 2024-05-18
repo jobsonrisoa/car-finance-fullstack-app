@@ -1,16 +1,15 @@
+@import "../../styles/constants.css";
+
 .button {
-    background-color: #6200ea;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  @media (max-width: 768px) {
-    .button {
-      font-size: 0.875rem;
-      padding: 8px 16px;
-    }
-  }
-  
+  background-color: var(--colors-buttonBackground);
+  color: var(--colors-buttonText);
+  padding: var(--spacing-smallPadding) var(--spacing-padding);
+  border: none;
+  border-radius: var(--borderRadius-small);
+  cursor: pointer;
+  font-size: var(--fonts-medium);
+}
+
+.button:hover {
+  background-color: var(--colors-primary);
+}

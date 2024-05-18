@@ -1,0 +1,41 @@
+@import "../../styles/constants.css";
+
+.installment-options {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.installment-options-upper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.installment-options-lower {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.installment-options-lower > div {
+  flex: 1;
+  margin: 0 10px;
+}
+
+@media (max-width: var(--breakpoints-tablet)) {
+  .installment-options {
+    flex-direction: column;
+  }
+
+  .installment-options-lower {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .installment-options-lower > div {
+    margin: 10px 0;
+  }
+}

@@ -1,0 +1,26 @@
+:root {
+    --colors-primary: #6200ea;
+    --colors-secondary: #f5f5f5;
+    --colors-text: #333;
+    --colors-background: #fff;
+    --colors-buttonBackground: green;
+    --colors-buttonText: #fff;
+  
+    --spacing-padding: 20px;
+    --spacing-margin: 20px;
+    --spacing-smallPadding: 10px;
+    --spacing-smallMargin: 10px;
+  
+    --borderRadius-small: 5px;
+  
+    --fonts-small: 0.875rem;
+    --fonts-medium: 1rem;
+    --fonts-large: 1.25rem;
+    --fonts-xLarge: 1.5rem;
+  
+    --breakpoints-mobile: 576px;
+    --breakpoints-tablet: 768px;
+    --breakpoints-desktop: 992px;
+    --breakpoints-largeDesktop: 1200px;
+  }
+  

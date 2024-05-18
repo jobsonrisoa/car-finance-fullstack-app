@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { postFinance } from '../services/financeService';
-import { FinanceData } from '../types/finance';
+import { FinanceResponse } from '../types/financeResponse';
 
 export const useFinances = () => {
-  const [data, setData] = useState<FinanceData | null>(null);
+  const [data, setData] = useState<FinanceResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const calculateFinance = async (carId: number, downPayment: number) => {
     try {
-      const result = await postFinance({ car_id: carId, down_payment: downPayment });
+      const result = await postFinance(carId, downPayment);
       setData(result);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error');
+    } catch (err: any) {
+      setError(err.message || 'Unknown error');
     }
   };
 

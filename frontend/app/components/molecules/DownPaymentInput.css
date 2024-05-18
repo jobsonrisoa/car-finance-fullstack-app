@@ -1,9 +1,18 @@
 @import "../../styles/constants.css";
 
+.down-payment-input {
+  margin-bottom: var(--spacing-margin);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: var(--spacing-smallMargin);
+  font-size: var(--fonts-large);
+}
+
 .input {
-  padding: var(--spacing-smallPadding);
-  margin: var(--spacing-smallMargin) 0;
   width: 100%;
+  padding: var(--spacing-smallPadding);
   font-size: var(--fonts-medium);
 }
 

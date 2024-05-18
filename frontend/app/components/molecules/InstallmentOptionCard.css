@@ -1,0 +1,29 @@
+@import "../../styles/constants.css";
+
+.installment-option-card {
+  border: 1px solid #ddd;
+  padding: var(--spacing-padding);
+  margin: var(--spacing-smallMargin);
+  text-align: center;
+  background-color: var(--colors-secondary);
+  border-radius: var(--borderRadius-small);
+}
+
+.installment-option-card h3 {
+  margin: 0;
+  font-size: var(--fonts-large);
+}
+
+.installment-option-card p {
+  margin: 0;
+  font-size: var(--fonts-medium);
+}
+
+@media (max-width: var(--breakpoints-tablet)) {
+  .installment-option-card h3 {
+    font-size: var(--fonts-medium);
+  }
+  .installment-option-card p {
+    font-size: var(--fonts-small);
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../styles/constants.css";
+
+.car-selector {
+  margin-bottom: var(--spacing-margin);
+}
+
+.title {
+  text-align: left;
+  margin-bottom: var(--spacing-smallMargin);
+  font-size: var(--fonts-large);
+}
+
+.select {
+  width: 100%;
+  padding: var(--spacing-smallPadding);
+  font-size: var(--fonts-medium);
+}
+
+@media (max-width: var(--breakpoints-tablet)) {
+  .select {
+    padding: var(--spacing-smallPadding);
+    font-size: var(--fonts-small);
+  }
+}
