@@ -16,6 +16,7 @@
 }
 
 .purple-button {
+  font-weight: 600;
   background-color: var(--colors-primary);
 }
 

@@ -7,8 +7,9 @@
   position: relative;
   padding: var(--spacing-padding);
   border-radius: var(--borderRadius-small);
-  max-width: 1200px; /* Match container width */
-  margin: 0 auto; /* Center align */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 80px;
 }
 
 .blurred {
@@ -18,15 +19,15 @@
 
 .upper-half {
   flex: 1;
-  margin-bottom: var(--spacing-margin); /* Medium gap */
 }
 
 .lower-half {
   flex: 1;
   display: flex;
   flex-direction: row;
-  max-width: 1200px; /* Match container width */
+  max-width: 1200px;
   width: 100%;
+  gap: 40px;
 }
 
 .left-half {
@@ -34,7 +35,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: var(--spacing-smallPadding);
 }
 
 .right-half {
@@ -42,7 +42,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-smallPadding);
   width: 100%;
 }
 
@@ -50,23 +49,22 @@
   .finance-simulation-wrapper {
     flex-direction: column;
     align-items: center;
+    gap: unset;
   }
 
   .upper-half,
   .lower-half {
     width: 100%;
-    padding: var(--spacing-smallPadding);
-    margin-bottom: var(--spacing-smallMargin);
   }
 
   .lower-half {
     flex-direction: column;
+    gap: unset;
   }
 
   .left-half,
   .right-half {
     width: 100%;
-    padding: var(--spacing-smallPadding);
     margin-bottom: var(--spacing-smallMargin);
   }
 }

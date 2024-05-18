@@ -2,6 +2,7 @@
 
 .car-selector {
   margin-bottom: var(--spacing-margin);
+  width: 100%;
 }
 
 .title {
@@ -11,19 +12,22 @@
 }
 
 .select {
-  width: 70%; /* Reduce width to 70% */
+  width: 60%;
   padding: var(--spacing-smallPadding);
   font-size: var(--fonts-medium);
+  margin-left: var(--spacing-margin);
 }
 
 @media (max-width: var(--breakpoints-tablet)) {
   .title {
-    text-align: left;
+    margin-left: unset;
+    align-self: flex-start;
   }
 
   .select {
     width: 100%;
     padding: var(--spacing-smallPadding);
     font-size: var(--fonts-small);
+    margin-left: unset;
   }
 }

@@ -6,22 +6,31 @@
   align-items: flex-start;
   background-color: #FAFAFA;
   padding: var(--spacing-padding);
-  border-radius: var(--borderRadius-small);
-  max-width: 1200px; /* Match container width */
-  margin: 0 auto; /* Center align */
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
 .input-button-group {
   display: flex;
   align-items: center;
-  margin-bottom: 20px; /* Desktop margin-bottom */
+  width: 100%;
 }
 
 .purple-button {
-  margin-left: var(--spacing-smallMargin);
+  width: 20%;
+  margin-left: var(--spacing-margin);
 }
 
 @media (max-width: 768px) {
+  .title {
+    align-self: flex-start;
+  }
+
+  .input {
+    margin: 0;
+    width: 80%;
+  }
+
   .finance-simulation-form {
     width: 100%;
     padding: var(--spacing-smallPadding);
@@ -29,13 +38,33 @@
     align-items: center;
   }
 
+  .down-payment-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .car-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .select {
+    width: 80%;
+    padding: var(--spacing-smallPadding);
+    font-size: var(--fonts-medium);
+    margin: 0;
+  }
+
   .input-button-group {
+    margin-top: 10px;
     flex-direction: column;
     align-items: center;
   }
 
   .purple-button {
-    width: 100%; /* Full width on tablet or smaller */
+    width: 80%; /* Full width on tablet or smaller */
     margin-left: 0;
     margin-top: var(--spacing-smallMargin);
   }

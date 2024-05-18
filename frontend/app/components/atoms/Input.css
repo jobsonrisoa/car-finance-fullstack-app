@@ -2,8 +2,7 @@
 
 .input {
   padding: var(--spacing-smallPadding);
-  margin: var(--spacing-smallMargin) 0;
-  width: 100%;
+  width: 60%;
   font-size: var(--fonts-medium);
 }
 

@@ -7,11 +7,8 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  border: 1px solid #ddd;
   padding: var(--spacing-padding);
-  margin: var(--spacing-margin);
   background-color: #FAFAFA;
-  border-radius: var(--borderRadius-small);
 }
 
 .card img {
@@ -22,7 +19,7 @@
 
 .card-image {
   width: 100%;
-  max-width: 300px; /* Make the image smaller */
+  max-width: 300px;
   height: auto;
   border-radius: var(--borderRadius-small);
 }
@@ -34,17 +31,28 @@
 .card-title {
   font-size: var(--fonts-large);
   font-weight: bold;
+  margin-bottom: 0;
 }
 
 .card-subtitle {
   font-size: var(--fonts-medium);
-  color: #888;
+  color: var(--colors-gray);
+  margin-top: var(--spacing-smallMargin);
 }
 
-.price {
+.car-info {
+  display: flex;
+  color: var(--colors-gray);
+  justify-content: space-between;
+  font-size: var(--fonts-small);
+  margin-top: var(--spacing-smallMargin);
+}
+
+.car-value {
   font-size: var(--fonts-large);
   font-weight: bold;
   color: #000;
+  margin-top: var(--spacing-smallMargin);
 }
 
 @media (max-width: var(--breakpoints-tablet)) {
@@ -61,7 +69,7 @@
     font-size: var(--fonts-small);
   }
 
-  .price {
+  .car-value {
     font-size: var(--fonts-medium);
   }
 }
