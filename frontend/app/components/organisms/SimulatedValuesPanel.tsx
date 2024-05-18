@@ -1,25 +1,35 @@
 'use client';
 
 import React from 'react';
-import InstallmentOptions from './InstallmentOptions';
 import './SimulatedValuesPanel.css';
-import { contactNumber, buttonLabel } from '../../styles/constants';
 
 type SimulatedValuesPanelProps = {
-  installments: {
-    '48': number;
-    '12': number;
-    '6': number;
-  };
+  installments: { [key: string]: number };
 };
 
 const SimulatedValuesPanel: React.FC<SimulatedValuesPanelProps> = ({ installments }) => (
   <div className="simulated-values-panel">
-    <h2 className="title">Valores simulados por você</h2>
-    <InstallmentOptions installments={installments} />
+    <h2 className="title">Valores simulados para você</h2>
+    <div className="installments-container">
+      <div className="installment-card highlight">
+        <div className="installment-label">6X</div>
+        <div className="installment-value">R$ {installments['6']}</div>
+        <div className="badge">IPVA GRÁTIS</div>
+      </div>
+      <div className="installment-card">
+        <div className="installment-label">12X</div>
+        <div className="installment-value">R$ {installments['12']}</div>
+      </div>
+      <div className="installment-card">
+        <div className="installment-label">48X</div>
+        <div className="installment-value">R$ {installments['48']}</div>
+      </div>
+    </div>
     <div className="action-container">
-      <a href={`tel:+1234567890`} className="contact-link">Contato: {contactNumber}</a>
-      <a href="#" className="simulate-button">{buttonLabel}</a>
+      <a href="https://wa.me/phone_number" className="whatsapp-button">
+        Falar com consultor
+      </a>
+      <div className="contact-label">(31) 3441-0240</div>
     </div>
   </div>
 );

@@ -1,40 +1,48 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CarSelector from '../molecules/CarSelector';
 import DownPaymentInput from '../molecules/DownPaymentInput';
 import Button from '../atoms/Button';
+import { Car } from '../../types/car';
 import './FinanceSimulationForm.css';
 
 type FinanceSimulationFormProps = {
   onSubmit: (carId: number, downPayment: number) => void;
+  initialCar: Car | null;
 };
 
-const FinanceSimulationForm: React.FC<FinanceSimulationFormProps> = ({ onSubmit }) => {
-  const [selectedCarId, setSelectedCarId] = useState<number | null>(null);
-  const [downPayment, setDownPayment] = useState<number>(0);
+const FinanceSimulationForm: React.FC<FinanceSimulationFormProps> = ({ onSubmit, initialCar }) => {
+  const [selectedCarId, setSelectedCarId] = useState<number | null>(initialCar ? initialCar.id : null);
+  const [downPayment, setDownPayment] = useState<string>('0');
+
+  useEffect(() => {
+    if (initialCar) {
+      setSelectedCarId(initialCar.id);
+    }
+  }, [initialCar]);
 
   const handleCarSelect = (carId: number) => {
     setSelectedCarId(carId);
   };
 
-  const handleDownPaymentInput = (payment: number) => {
+  const handleDownPaymentInput = (payment: string) => {
     setDownPayment(payment);
   };
 
   const handleSubmit = () => {
     if (selectedCarId !== null) {
-      onSubmit(selectedCarId, downPayment);
+      onSubmit(selectedCarId, Number(downPayment));
     }
   };
 
   return (
     <div className="finance-simulation-form">
-      <CarSelector onSelect={handleCarSelect} />
+      <CarSelector onSelect={handleCarSelect} initialCarId={selectedCarId} />
       {selectedCarId && (
-        <div className='down-payment-wrapper'>
-          <DownPaymentInput onInput={handleDownPaymentInput} />
-          <Button onClick={handleSubmit}>Simular</Button>
+        <div className="input-button-group">
+          <DownPaymentInput onInput={handleDownPaymentInput} value={downPayment} />
+          <Button className="purple-button" onClick={handleSubmit}>Simular</Button>
         </div>
       )}
     </div>

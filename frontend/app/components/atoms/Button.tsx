@@ -4,12 +4,15 @@ import React from 'react';
 import './Button.css';
 
 type ButtonProps = {
-  children: React.ReactNode;
   onClick: () => void;
+  children: React.ReactNode;
+  className?: string; // Allow className as a prop
 };
 
-const Button: React.FC<ButtonProps> = ({ children, onClick }) => (
-  <button className="button" onClick={onClick}>{children}</button>
+const Button: React.FC<ButtonProps> = ({ onClick, children, className }) => (
+  <button className={`button ${className}`} onClick={onClick}>
+    {children}
+  </button>
 );
 
 export default Button;

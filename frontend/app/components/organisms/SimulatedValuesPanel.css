@@ -3,19 +3,63 @@
 .simulated-values-panel {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: var(--spacing-padding);
   border: 1px solid #ddd;
   border-radius: var(--borderRadius-small);
-  background-color: var(--colors-background);
-  max-width: 600px;
-  margin: 0 auto;
+  background-color: #FAFAFA; /* Match finance-simulation-form background */
+  width: 100%;
 }
 
 .title {
-  text-align: center;
+  text-align: left;
   margin-bottom: var(--spacing-margin);
   font-size: var(--fonts-large);
+  color: var(--colors-primary);
+  border-bottom: 3px solid var(--colors-primary);
+  padding-bottom: var(--spacing-smallMargin);
+}
+
+.installments-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-smallMargin);
+  width: 100%;
+}
+
+.installment-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-smallPadding);
+  border: 1px solid #ddd;
+  border-radius: var(--borderRadius-small);
+  background-color: #fff;
+  width: 100%; /* Ensure the card takes up the full width */
+}
+
+.installment-card.highlight {
+  grid-column: span 2;
+  border-color: var(--colors-primary);
+}
+
+.installment-label {
+  font-size: var(--fonts-medium);
+  color: var(--colors-primary);
+}
+
+.installment-value {
+  font-size: var(--fonts-large);
+  color: var(--colors-primary);
+}
+
+.badge {
+  margin-top: var(--spacing-smallMargin);
+  padding: var(--spacing-extraSmallPadding) var(--spacing-smallPadding);
+  background-color: var(--colors-primary);
+  color: #fff;
+  border-radius: var(--borderRadius-small);
 }
 
 .action-container {
@@ -26,35 +70,61 @@
   margin-top: var(--spacing-margin);
 }
 
-.simulate-button {
-  background-color: var(--colors-buttonBackground);
-  color: var(--colors-buttonText);
+.whatsapp-button {
+  background-color: #25D366; /* WhatsApp green */
+  color: #fff;
   padding: var(--spacing-smallPadding) var(--spacing-padding);
   text-decoration: none;
-  border-radius: var(--borderRadius-small);
+  border-radius: 20px; /* Rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 66%;
   text-align: center;
 }
 
-.contact-link {
-  width: 33%;
-  text-align: right;
+.whatsapp-button:hover {
+  background-color: #34E889; /* Lighter green */
 }
 
-@media (max-width: var(--breakpoints-tablet)) {
+.contact-label {
+  width: 33%;
+  text-align: right;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .simulated-values-panel {
+    align-items: center;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .installments-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--spacing-smallMargin);
+  }
+
+  .installment-card.highlight {
+    grid-column: span 1; /* No highlighted card on smaller screens */
+  }
+
   .action-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .simulate-button,
-  .contact-link {
+  .whatsapp-button,
+  .contact-label {
     width: 100%;
     text-align: center;
     margin-bottom: var(--spacing-smallMargin);
   }
 
-  .simulate-button {
+  .whatsapp-button {
     margin-bottom: 0;
   }
 }

@@ -4,16 +4,32 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background: #FAFAFA;
+  background-color: #FAFAFA;
+  padding: var(--spacing-padding);
+  border-radius: var(--borderRadius-small);
+  max-width: 1200px; /* Match container width */
+  margin: 0 auto; /* Center align */
 }
 
-.down-payment-wrapper {
+.input-button-group {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px; /* Desktop margin-bottom */
 }
 
-@media (max-width: var(--breakpoints-tablet)) {
-  .finance-simulation-form {
-    padding: var(--spacing-smallPadding);
+.purple-button {
+  margin-left: var(--spacing-smallMargin);
+}
+
+@media (max-width: 1024px) {
+  .input-button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .purple-button {
+    width: 100%; /* Full width on tablet or smaller */
+    margin-left: 0;
+    margin-top: var(--spacing-smallMargin);
   }
 }

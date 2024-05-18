@@ -5,11 +5,13 @@ import Input from '../atoms/Input';
 import './DownPaymentInput.css';
 
 type DownPaymentInputProps = {
-  onInput: (downPayment: number) => void;
+  onInput: (downPayment: string) => void;
+  value: string;
 };
 
-const DownPaymentInput: React.FC<DownPaymentInputProps> = ({ onInput }) => {
-  const [downPayment, setDownPayment] = useState<number>(0);
+const DownPaymentInput: React.FC<DownPaymentInputProps> = ({ onInput, value }) => {
+  const [downPayment, setDownPayment] = useState<string>(value);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
   const handleInput = useCallback(() => {
     onInput(downPayment);
@@ -19,13 +21,21 @@ const DownPaymentInput: React.FC<DownPaymentInputProps> = ({ onInput }) => {
     handleInput();
   }, [handleInput]);
 
+  const handleClick = () => {
+    if (!isClicked) {
+      setDownPayment('');
+      setIsClicked(true);
+    }
+  };
+
   return (
     <div className="down-payment-input">
       <h2 className="title">Valor de entrada</h2>
       <Input
-        type="number"
+        type="text"
         value={downPayment}
-        onChange={(e) => setDownPayment(Number(e.target.value))}
+        onChange={(e) => setDownPayment(e.target.value)}
+        onClick={handleClick}
       />
     </div>
   );

@@ -11,13 +11,18 @@
 }
 
 .select {
-  width: 100%;
+  width: 70%; /* Reduce width to 70% */
   padding: var(--spacing-smallPadding);
   font-size: var(--fonts-medium);
 }
 
 @media (max-width: var(--breakpoints-tablet)) {
+  .title {
+    text-align: center;
+  }
+
   .select {
+    width: 100%;
     padding: var(--spacing-smallPadding);
     font-size: var(--fonts-small);
   }

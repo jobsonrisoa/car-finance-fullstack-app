@@ -8,11 +8,12 @@ import './CarSelector.css';
 
 type CarSelectorProps = {
   onSelect: (carId: number) => void;
+  initialCarId: number | null;
 };
 
-const CarSelector: React.FC<CarSelectorProps> = ({ onSelect }) => {
+const CarSelector: React.FC<CarSelectorProps> = ({ onSelect, initialCarId }) => {
   const { data: cars, error: carsError } = useCars();
-  const [selectedCarId, setSelectedCarId] = useState<number | null>(null);
+  const [selectedCarId, setSelectedCarId] = useState<number | null>(initialCarId);
 
   const handleSelect = useCallback(() => {
     if (selectedCarId !== null) {
@@ -24,6 +25,12 @@ const CarSelector: React.FC<CarSelectorProps> = ({ onSelect }) => {
     handleSelect();
   }, [handleSelect]);
 
+  useEffect(() => {
+    if (cars && cars.length > 0 && selectedCarId === null) {
+      setSelectedCarId(cars[0].id);
+    }
+  }, [cars, selectedCarId]);
+
   if (carsError) return <div>Error loading cars</div>;
 
   return (
@@ -31,6 +38,7 @@ const CarSelector: React.FC<CarSelectorProps> = ({ onSelect }) => {
       <h2 className="title">Selecione um veículo que deseja simular o financiamento</h2>
       <select
         className="select"
+        value={selectedCarId ?? ''}
         onChange={(e) => setSelectedCarId(Number(e.target.value))}
       >
         <option value="">{selectPlaceholder}</option>

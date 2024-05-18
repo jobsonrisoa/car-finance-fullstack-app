@@ -5,11 +5,20 @@
   color: var(--colors-buttonText);
   padding: var(--spacing-smallPadding) var(--spacing-padding);
   border: none;
-  border-radius: var(--borderRadius-small);
+  border-radius: 20px; /* Rounded corners */
   cursor: pointer;
   font-size: var(--fonts-medium);
+  margin-left: var(--spacing-smallMargin);
 }
 
 .button:hover {
   background-color: var(--colors-primary);
+}
+
+.purple-button {
+  background-color: var(--colors-primary);
+}
+
+.purple-button:hover {
+  background-color: #7e57c2; /* Lighter purple */
 }

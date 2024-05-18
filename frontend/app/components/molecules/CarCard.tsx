@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { Car } from '../../types/car';
 import './CarCard.css';
 
@@ -11,9 +10,12 @@ type CarCardProps = {
 
 const CarCard: React.FC<CarCardProps> = ({ car }) => (
   <div className="card">
-    <Image src={car.image} alt={car.model} width={300} height={200} />
-    <h3>{car.model}</h3>
-    <p>{car.price}</p>
+    <img src={car.image} alt={car.model} className="card-image" />
+    <div className="card-details">
+      <h3 className="card-title">{car.model}</h3>
+      <p className="card-subtitle">{car.description}</p>
+      <div className="price">R$ {car.value}</div>
+    </div>
   </div>
 );
 
