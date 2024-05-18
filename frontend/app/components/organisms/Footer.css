@@ -1,7 +1,7 @@
 @import "../../styles/constants.css";
 
 .footer {
-  background-color: #333;
+  background-color: #595E64;
   color: #fff;
   padding: var(--spacing-largePadding);
 }
