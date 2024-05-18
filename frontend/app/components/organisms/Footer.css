@@ -1,13 +1,122 @@
+@import "../../styles/constants.css";
+
 .footer {
-    background-color: #4a4a4a;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
+  background-color: #333;
+  color: #fff;
+  padding: var(--spacing-largePadding);
+}
+
+.footer-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: var(--spacing-smallMargin);
+}
+
+.footer-section h4 {
+  font-size: var(--fonts-medium);
+  margin-bottom: var(--spacing-smallMargin);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: var(--spacing-extraSmallMargin);
+}
+
+.footer-section ul li a {
+  color: var(--colors-white);
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact {
+  flex: 1;
+  min-width: 200px;
+}
+
+.contact-button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-button {
+  padding: var(--spacing-smallPadding);
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.purple-button {
+  background-color: var(--colors-primary);
+}
+
+.green-button {
+  background-color: #25D366;
+}
+
+.footer-social {
+  flex: 1;
+  min-width: 200px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-icon {
+  background-color: var(--colors-primary);
+  color: #fff;
+  padding: var(--spacing-smallPadding);
+  border-radius: 50%;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .footer-sections {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  @media (max-width: 768px) {
-    .footer {
-      padding: 8px 0;
-    }
+
+  .footer-contact,
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
+  .contact-button-group {
+    flex-direction: column;
+  }
+
+  .contact-button {
+    width: 100%;
+    margin-bottom: var(--spacing-smallMargin);
+  }
+
+  .social-icons {
+    margin-top: var(--spacing-smallMargin);
+  }
+}
