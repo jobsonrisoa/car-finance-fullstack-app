@@ -47,6 +47,18 @@
 }
 
 @media (max-width: 768px) {
+  .finance-simulation-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .upper-half,
+  .lower-half {
+    width: 100%;
+    padding: var(--spacing-smallPadding);
+    margin-bottom: var(--spacing-smallMargin);
+  }
+
   .lower-half {
     flex-direction: column;
   }
@@ -54,5 +66,7 @@
   .left-half,
   .right-half {
     width: 100%;
+    padding: var(--spacing-smallPadding);
+    margin-bottom: var(--spacing-smallMargin);
   }
 }

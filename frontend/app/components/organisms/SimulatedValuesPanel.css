@@ -7,7 +7,7 @@
   padding: var(--spacing-padding);
   border: 1px solid #ddd;
   border-radius: var(--borderRadius-small);
-  background-color: #FAFAFA; /* Match finance-simulation-form background */
+  background-color: #FAFAFA;
   width: 100%;
 }
 
@@ -36,7 +36,7 @@
   border: 1px solid #ddd;
   border-radius: var(--borderRadius-small);
   background-color: #fff;
-  width: 100%; /* Ensure the card takes up the full width */
+  width: 100%;
 }
 
 .installment-card.highlight {
@@ -71,11 +71,11 @@
 }
 
 .whatsapp-button {
-  background-color: #25D366; /* WhatsApp green */
+  background-color: #25D366;
   color: #fff;
   padding: var(--spacing-smallPadding) var(--spacing-padding);
   text-decoration: none;
-  border-radius: 20px; /* Rounded corners */
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,7 +84,7 @@
 }
 
 .whatsapp-button:hover {
-  background-color: #34E889; /* Lighter green */
+  background-color: #34E889;
 }
 
 .contact-label {
@@ -96,6 +96,8 @@
 @media (max-width: 768px) {
   .simulated-values-panel {
     align-items: center;
+    padding: var(--spacing-smallPadding);
+    margin-bottom: var(--spacing-smallMargin);
   }
 
   .title {
@@ -103,13 +105,13 @@
   }
 
   .installments-container {
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-smallMargin);
   }
 
   .installment-card.highlight {
-    grid-column: span 1; /* No highlighted card on smaller screens */
+    grid-column: span 1;
   }
 
   .action-container {

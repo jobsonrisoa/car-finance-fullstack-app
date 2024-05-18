@@ -1,8 +1,8 @@
 @import "../../styles/constants.css";
 
 .down-payment-input {
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   margin-bottom: var(--spacing-margin);
   width: 100%;
 }
@@ -26,7 +26,7 @@
   }
 
   .title {
-    text-align: center;
+    text-align: left;
     margin-right: 0;
   }
 
