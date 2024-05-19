@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './SimulatedValuesPanel.css';
+import { FaWhatsapp } from 'react-icons/fa';
 
 type SimulatedValuesPanelProps = {
   installments: { [key: string]: number };
@@ -31,6 +32,7 @@ const SimulatedValuesPanel: React.FC<SimulatedValuesPanelProps> = ({ installment
     </div>
     <div className="action-container">
       <a href="https://wa.me/phone_number" className="whatsapp-button">
+        <FaWhatsapp />
         Falar com consultor
       </a>
       <div className="contact-label">(31) 3441-0240</div>

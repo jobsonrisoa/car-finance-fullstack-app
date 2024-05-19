@@ -3,6 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import './Footer.css';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { CiFacebook, CiLinkedin, CiTwitter } from 'react-icons/ci';
 
 const Footer: React.FC = () => {
   return (
@@ -45,16 +47,16 @@ const Footer: React.FC = () => {
           <h4>Atendimento ao cliente</h4>
           <div className="contact-button-group">
             <Link href="tel:0800000000" className="contact-button purple-button">0800 000 000</Link>
-            <Link href="https://wa.me/phone_number" className="contact-button green-button">W</Link>
+            <Link href="https://wa.me/phone_number" className="contact-button green-button"><FaWhatsapp /></Link>
           </div>
         </div>
         <div className="footer-section footer-social">
           <h4>Siga a gente</h4>
           <div className="social-icons">
-            <Link href="https://facebook.com" className="social-icon">F</Link>
-            <Link href="https://instagram.com" className="social-icon">I</Link>
-            <Link href="https://twitter.com" className="social-icon">T</Link>
-            <Link href="https://linkedin.com" className="social-icon">L</Link>
+            <Link href="https://facebook.com" className="social-icon"><CiFacebook /></Link>
+            <Link href="https://instagram.com" className="social-icon"><FaInstagram /></Link>
+            <Link href="https://twitter.com" className="social-icon"><CiTwitter /></Link>
+            <Link href="https://linkedin.com" className="social-icon"><CiLinkedin /></Link>
           </div>
         </div>
       </div>

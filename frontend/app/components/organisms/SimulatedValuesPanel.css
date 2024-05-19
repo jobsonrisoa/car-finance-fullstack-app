@@ -82,6 +82,8 @@
   justify-content: center;
   width: 66%;
   text-align: center;
+  display: flex;
+  gap: 5px;
 }
 
 .whatsapp-button:hover {
