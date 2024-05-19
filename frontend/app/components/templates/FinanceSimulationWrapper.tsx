@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import CarCard from '../molecules/CarCard';
-import FinanceSimulationForm from './FinanceSimulationForm';
-import SimulatedValuesPanel from './SimulatedValuesPanel';
+import FinanceSimulationForm from '../organisms/FinanceSimulationForm';
+import SimulatedValuesPanel from '../organisms/SimulatedValuesPanel';
 import Spinner from '../atoms/Spinner';
 import { Car } from '../../types/car';
 import { useFinances } from '../../hooks/useFinances';
