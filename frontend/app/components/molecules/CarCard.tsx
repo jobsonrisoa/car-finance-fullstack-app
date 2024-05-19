@@ -3,6 +3,8 @@
 import React from 'react';
 import { Car } from '../../types/car';
 import './CarCard.css';
+import Image from 'next/image';
+import carImg from '/public/car.jpeg';
 
 type CarCardProps = {
   car: Car;
@@ -14,7 +16,8 @@ const formatCarValue = (value: number): string => {
 
 const CarCard: React.FC<CarCardProps> = ({ car }) => (
   <div className="card">
-    <img src={car.image} alt={car.model} className="card-image" />
+    {/* <img src="/listra_logo.jpg" alt={car.model} className="card-image" /> */}
+    <Image src={carImg} alt={car.model} className="card-image" width={300} height={200} />
     <div className="card-details">
       <h3 className="card-title">{car.model}</h3>
       <p className="card-subtitle">{car.description}</p>

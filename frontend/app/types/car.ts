@@ -1,7 +1,7 @@
 export type Car = {
   id: number;
   model: string;
-  image: string;
+  photo: string;
   description: string;
   year: number;
   mileage: number;

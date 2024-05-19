@@ -49,13 +49,13 @@
 
 .contact-button-group {
   display: flex;
-  justify-content: space-between;
+  gap: var(--spacing-smallMargin);
   align-items: center;
 }
 
 .contact-button {
   padding: var(--spacing-smallPadding);
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
   color: #fff;
   text-decoration: none;
@@ -76,7 +76,7 @@
 
 .social-icons {
   display: flex;
-  justify-content: space-between;
+  gap: var(--spacing-smallMargin);
   align-items: center;
 }
 
@@ -84,7 +84,7 @@
   background-color: var(--colors-primary);
   color: #fff;
   padding: var(--spacing-smallPadding);
-  border-radius: 50%;
+  border-radius: 10px;
   text-align: center;
   width: 40px;
   height: 40px;

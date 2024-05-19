@@ -56,7 +56,7 @@ const FinanceSimulationForm: React.FC<FinanceSimulationFormProps> = ({
               value={downPayment}
             />
           </div>
-          <Button className='purple-button' onClick={handleSubmit}>
+          <Button className='purple-button simulate-button' onClick={handleSubmit}>
             Simular
           </Button>
         </>

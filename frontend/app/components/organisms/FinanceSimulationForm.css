@@ -16,9 +16,8 @@
   width: 100%;
 }
 
-.purple-button {
-  width: 20%;
-  margin-left: var(--spacing-margin);
+.simulate-button {
+  width: 25%;
 }
 
 @media (max-width: 768px) {
@@ -63,9 +62,10 @@
     align-items: center;
   }
 
-  .purple-button {
-    width: 80%; /* Full width on tablet or smaller */
+  .simulate-button {
+    width: 50%;
     margin-left: 0;
     margin-top: var(--spacing-smallMargin);
+    height: 40px;
   }
 }

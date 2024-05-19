@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
           <h4>Atendimento ao cliente</h4>
           <div className="contact-button-group">
             <Link href="tel:0800000000" className="contact-button purple-button">0800 000 000</Link>
-            <Link href="https://wa.me/phone_number" className="contact-button green-button">WhatsApp</Link>
+            <Link href="https://wa.me/phone_number" className="contact-button green-button">W</Link>
           </div>
         </div>
         <div className="footer-section footer-social">

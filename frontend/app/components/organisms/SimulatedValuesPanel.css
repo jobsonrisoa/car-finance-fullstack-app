@@ -7,6 +7,7 @@
   padding: var(--spacing-padding);
   background-color: #FAFAFA;
   width: 100%;
+  height: 100%;
 }
 
 .title {
