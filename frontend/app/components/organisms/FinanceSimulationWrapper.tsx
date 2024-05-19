@@ -14,28 +14,22 @@ const FinanceSimulationWrapper: React.FC = () => {
   const { data: cars, error: carsError } = useCars();
   const { data: financeData, error: financeError, calculateFinance } = useFinances();
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (cars && cars.length > 0) {
-      const initialCar = cars[0];
-      setSelectedCar(initialCar);
-      calculateFinance(initialCar.id, 0).finally(() => {
-        setLoading(false);
-      });
+      setSelectedCar(cars[0]);
     }
-  }, [cars, calculateFinance]);
+  }, [cars]);
+
+  const handleCarSelect = (carId: number) => {
+    const selectedCar = cars?.find(car => car.id === carId) || null;
+    setSelectedCar(selectedCar);
+  };
 
   const handleFormSubmit = (carId: number, downPayment: number) => {
     setLoading(true);
-    calculateFinance(carId, downPayment).then(() => {
-      const selectedCar = cars?.find(car => car.id === carId) || null;
-      setSelectedCar(selectedCar);
-    }).catch(error => {
-      console.error('Error calculating finance:', error);
-    }).finally(() => {
-      setLoading(false);
-    });
+    calculateFinance(carId, downPayment).finally(() => setLoading(false));
   };
 
   if (carsError) return <div>Error loading cars: {carsError}</div>;
@@ -46,14 +40,20 @@ const FinanceSimulationWrapper: React.FC = () => {
       {loading && <Spinner />}
       <div className={`finance-simulation-wrapper ${loading ? 'blurred' : ''}`}>
         <div className="upper-half">
-          <FinanceSimulationForm onSubmit={handleFormSubmit} initialCar={selectedCar} />
+          <FinanceSimulationForm
+            onSubmit={handleFormSubmit}
+            onCarSelect={handleCarSelect}
+            initialCar={selectedCar}
+          />
         </div>
         <div className="lower-half">
           <div className="left-half">
             {selectedCar && <CarCard car={selectedCar} />}
           </div>
           <div className="right-half">
-            {financeData && <SimulatedValuesPanel installments={financeData.original.installment_values} />}
+            {financeData && (
+              <SimulatedValuesPanel installments={financeData.original.installment_values} />
+            )}
           </div>
         </div>
       </div>

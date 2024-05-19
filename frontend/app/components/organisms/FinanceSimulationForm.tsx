@@ -9,11 +9,13 @@ import "./FinanceSimulationForm.css";
 
 type FinanceSimulationFormProps = {
   onSubmit: (carId: number, downPayment: number) => void;
+  onCarSelect: (carId: number) => void;
   initialCar: Car | null;
 };
 
 const FinanceSimulationForm: React.FC<FinanceSimulationFormProps> = ({
   onSubmit,
+  onCarSelect,
   initialCar,
 }) => {
   const [selectedCarId, setSelectedCarId] = useState<number | null>(
@@ -29,6 +31,8 @@ const FinanceSimulationForm: React.FC<FinanceSimulationFormProps> = ({
 
   const handleCarSelect = (carId: number) => {
     setSelectedCarId(carId);
+    setDownPayment("0");
+    onCarSelect(carId);
   };
 
   const handleDownPaymentInput = (payment: string) => {
